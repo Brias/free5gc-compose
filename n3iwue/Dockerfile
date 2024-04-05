@@ -1,4 +1,6 @@
-FROM golang:1.18.10-bullseye AS builder
+# Go only supports coverage data from Go 1.20 upwards
+# https://go.dev/doc/build-cover
+FROM golang:1.20-bullseye AS builder
 
 LABEL maintainer="Free5GC <support@free5gc.org>"
 

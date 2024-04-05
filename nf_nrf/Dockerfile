@@ -1,5 +1,7 @@
-FROM free5gc/nrf-base:latest AS builder
-FROM alpine:3.15
+FROM local-free5gc/nrf-base:latest AS builder
+# Go only supports coverage data from Go 1.20 upwards
+# https://go.dev/doc/build-cover
+FROM golang:1.20-bullseye
 
 LABEL description="Free5GC open source 5G Core Network" \
     version="Stage 3"

@@ -1,4 +1,4 @@
-DOCKER_IMAGE_OWNER = 'free5gc'
+DOCKER_IMAGE_OWNER = 'local-free5gc'
 DOCKER_IMAGE_NAME = 'base'
 DOCKER_IMAGE_TAG = 'latest'
 

@@ -1,5 +1,7 @@
-FROM free5gc/n3iwf-base:latest AS builder
-FROM alpine:3.15
+FROM local-free5gc/n3iwf-base:latest AS builder
+# Go only supports coverage data from Go 1.20 upwards
+# https://go.dev/doc/build-cover
+FROM golang:1.20-bullseye
 
 LABEL description="Free5GC open source 5G Core Network" \
     version="Stage 3"
@@ -11,7 +13,8 @@ ARG DEBUG_TOOLS
 RUN if [ "$DEBUG_TOOLS" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
 
 # Install N3IWF dependencies
-RUN apk add -U iproute2
+# Changed to apt because of base image change from Alpine to Debian
+# TODO: Install for Debian: RUN apt install -y iproute2
 
 # Set working dir
 WORKDIR /free5gc

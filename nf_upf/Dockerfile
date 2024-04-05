@@ -1,10 +1,10 @@
-FROM free5gc/base as my-base
+FROM local-free5gc/base as my-base
 
 RUN git clone https://github.com/free5gc/go-gtp5gnl.git && mkdir "go-gtp5gnl/bin" && \
     cd "go-gtp5gnl/cmd/gogtp5g-tunnel" &&  go build -o "${GOPATH}/gtp5g-tunnel" . && \
     cd -
 
-FROM free5gc/upf-base:latest AS builder
+FROM local-free5gc/upf-base:latest AS builder
 FROM bitnami/minideb:bullseye
 
 LABEL description="Free5GC open source 5G Core Network" \
