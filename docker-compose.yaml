@@ -3,7 +3,6 @@
 services:
   free5gc-upf:
     container_name: upf
-    user: "${UID_GID}"
     image: local-free5gc/upf:local-free5gc
     command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
     volumes:
@@ -296,7 +295,7 @@ services:
   ueransim:
     container_name: ueransim
     user: "${UID_GID}"
-    image: local-free5gc/ueransim:latest
+    image: free5gc/ueransim:latest
     command: ./nr-gnb -c ./config/gnbcfg.yaml
     volumes:
       - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml

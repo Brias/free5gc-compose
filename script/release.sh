@@ -18,7 +18,7 @@ make all
 docker compose -f docker-compose-build.yaml build
 
 for NF in ${NF_LIST}; do
-    docker tag free5gc-compose-free5gc-${NF}:latest free5gc/${NF}:${TAG}
+    docker tag free5gc-compose-free5gc-${NF}:latest local-free5gc/${NF}:${TAG}
 done
 
 
